@@ -13,7 +13,7 @@ $cep = $_POST['cep'];
 $estado = $_POST['estado'];
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+$senha = $_POST['senha']; // Senha em texto normal
 
 // Prepare a SQL statement
 $sql = "INSERT INTO usuarios (nome, cpf, data_nascimento, cidade, bairro, endereco, cep, estado, telefone, email, senha) 
@@ -36,8 +36,14 @@ $stmt->bindParam(':senha', $senha);
 
 // Execute a consulta
 if ($stmt->execute()) {
-    echo "Cadastro realizado com sucesso!";
+    echo "<script>
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = '../HTML/entrar.html'; // Redireciona para a página de entrar
+          </script>";
 } else {
-    echo "Erro ao cadastrar.";
+    echo "<script>
+            alert('Erro ao cadastrar.');
+            window.location.href = 'cadastro.html'; // Redireciona para a página de cadastro
+          </script>";
 }
 ?>
