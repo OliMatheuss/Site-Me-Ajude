@@ -8,7 +8,7 @@
   <link rel="shortcut icon" type="image/png" href="../Imagens/Slide1.JPG">
   <title>Login do Usuários</title>
   <script language="JavaScript" type="text/javascript"></script>
-  
+
   <script>
     function aumentarFonte() {
       let corpo = document.querySelector('body');
@@ -22,6 +22,20 @@
       let tamanhoAtual = window.getComputedStyle(corpo).fontSize;
       let novoTamanho = parseFloat(tamanhoAtual) - 2; // Diminui o tamanho em 2px
       corpo.style.fontSize = novoTamanho + 'px';
+    }
+    
+    function Alerta1() {
+      if (document.forms[0].email.value == "" || document.forms[0].email.value.length < 3) {
+        alert("Por favor, informe o seu email!");
+        document.forms[0].email.focus();
+        return false;
+      }
+      if (document.forms[0].senha.value == "" || document.forms[0].senha.value.length < 3) {
+        alert("Por favor, informe a sua senha!");
+        document.forms[0].senha.focus();
+        return false;
+      }
+      return true; // Permite o envio do formulário se tudo estiver correto
     }
   </script>
 </head>
@@ -75,52 +89,37 @@
     </nav>
   </header>
 
-  <script language="javascript">
-    function Alerta1() {
-      if (document.forms[0].email.value == "" || document.forms[0].email.value.length < 3) {
-        alert("Por favor, informe o seu email!");
-        document.forms[0].email.focus();
-        return false;
-      }
-      if (document.forms[0].senha.value == "" || document.forms[0].senha.value.length < 3) {
-        alert("Por favor, informe a sua senha!");
-        document.forms[0].senha.focus();
-        return false;
-      }
-      alert("Bem-vindo a sua sessão!");
-      return true; // Permite o envio do formulário se tudo estiver correto
-    }
-  </script>
-
   <br>
   <form method="post" action="../PHP/login.php" onsubmit="return Alerta1()">
-    <p>Fazer login</p>
+    <h2>Fazer Login</h2> <!-- Título mais destacado -->
+    
     <div class="form-group">
-      <label for="exampleInputEmail1">Endereço de email</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Seu email">
-      <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email com ninguém.</small>
+        <label for="exampleInputEmail1">Endereço de Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Seu email" required>
+        <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email com ninguém.</small>
     </div>
+    
     <div class="form-group">
-      <label for="exampleInputPassword1">Senha</label>
-      <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+        <label for="exampleInputPassword1">Senha</label>
+        <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha" required>
     </div>
+    
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Clique em mim</label>
-    </div><br>
-    <ul>
-      <li><a href="../HTML/cadastro.html"> Não tem uma conta? Crie uma!</a></li>
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Lembre-me</label> <!-- Trocado para um texto mais apropriado -->
+    </div>
+    
+    <ul class="list-unstyled"> <!-- Removido o estilo padrão da lista -->
+        <li><a href="../HTML/cadastro.html">Não tem uma conta? Crie uma!</a></li>
+        <li><a href="../HTML/recuperarSenha.html">Não consegue acessar sua conta?</a></li>
+        <li><a href="../HTML/editarUsuario.html">Editar conta</a></li>
     </ul>
-    <ul>
-      <li><a href="../HTML/recuperarSenha.html">Não consegue acessar sua conta?</a></li>
-    </ul>
-    <ul>
-      <li><a href="../HTML/editarUsuario.html">Editar conta</a></li>
-    </ul>
+    
     <button type="submit" class="btn btn-secondary">Entrar</button>
     <button type="reset" class="btn btn-secondary">Limpar</button>
     <button type="button" class="btn btn-secondary" onclick="history.back()">Voltar</button>
-  </form>
+</form>
+
   <br><br>
 
   <footer class="text-center text-lg-start bg-body-tertiary text-muted">
