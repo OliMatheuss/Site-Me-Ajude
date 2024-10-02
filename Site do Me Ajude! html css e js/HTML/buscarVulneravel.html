@@ -63,21 +63,29 @@
   <main class="container my-5">
     <center>
       <h1>Bem-vindo ao Me Ajude!</h1>
-      <h3>Aqui você pode gerenciar suas ações e doações.</h3>
+      <h3>Aqui você pode buscar um vulnerável para suas doações.</h3>
     </center>
 
     <form action="../PHP/buscarVulneravel.php" method="POST" class="mt-5">
       <center><h2>Buscar Vulnerável</h2></center>
+      
       <div class="form-group">
         <label for="idVulneravel">Buscar por nome vulnerável</label>
         <input type="text" class="form-control" id="idVulneravel" name="idVulneravel" placeholder="Digite o nome do vulnerável" required>
       </div>
+
+      <div class="form-group">
+        <label>Visualização da Imagem:</label><br>
+        <img id="preview" src="#" alt="Pré-visualização da Imagem" style="display:none; max-width: 200px; border: 1px solid #ccc; margin-top: 10px;" >
+      </div>
+
 <!--está faltando o select para trazer os nomes em oredem alfabetica-->
       <!-- Área para mostrar as necessidades do vulnerável -->
      <div class="form-group mt-5">
         <label for="necessidades">Resumo do Vulnerável</label>
         <textarea class="form-control" id="necessidades" name="necessidades" rows="5" placeholder="As necessidades aparecerão aqui..." readonly></textarea>
       </div><br>
+      
         <button type="submit" class="btn btn-primary">Buscar</button>
         <button type="reset" class="btn btn-secondary">Limpar</button>
         <button type="button" class="btn btn-secondary" onclick="history.back()">Voltar</button>  
