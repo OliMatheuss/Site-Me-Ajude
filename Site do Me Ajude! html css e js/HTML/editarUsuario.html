@@ -92,23 +92,50 @@
             <center><h2>Editar Conta</h2></center>
             <form name="cadastro" onsubmit="return validarFormulario()">
                 <div class="form-group">
-                    <label for="email">Endereço de Email</label>
+                    <label for="email">Novo Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Seu email">
-                </div>
-                <div class="form-group">
-                    <label for="usuario">Nome de Usuário</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nome de usuário">
-                </div>
-                <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
-                </div>
-                <div class="form-group">
-                    <label for="confirmarSenha">Confirmar Senha</label>
-                    <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
-                        placeholder="Confirmar senha">
-                </div>
-                <br>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Seu Bairro" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Seu endereço" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" class="form-control" id="estado" name="estado" placeholder="Seu estado" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Seu Telefone" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="senha">Nova Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmarSenha">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
+                            placeholder="Confirmar senha">
+                    </div>
+                    <br>
                 <button type="submit" class="btn btn-primary">Salvar Alterações</button>
                 <button type="reset" class="btn btn-secondary">Limpar</button>
                 <button type="button" class="btn btn-secondary" onclick="history.back()">Voltar</button>
