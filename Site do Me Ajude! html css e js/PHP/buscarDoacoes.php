@@ -18,14 +18,16 @@ $doacoes = $stmtDoacoes->fetchAll(PDO::FETCH_ASSOC);
 
 // Verificando se o usuário possui doações registradas
 if ($doacoes && count($doacoes) > 0) {
-    echo "<h2>Histórico de Doações</h2>";
-    echo "<table border='1'>
-            <tr>
-                <th>ID</th>
-                <th>Valor</th>
-                <th>Data da Doação</th>
-                <th>Descrição</th>
-            </tr>";
+    echo "<table class='table table-striped'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Valor</th>
+                    <th>Data da Doação</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>";
 
     foreach ($doacoes as $doacao) {
         echo "<tr>
@@ -36,9 +38,12 @@ if ($doacoes && count($doacoes) > 0) {
               </tr>";
     }
 
-    echo "</table>";
+    echo "</tbody></table>";
 } else {
-    echo "<script>alert('Nenhuma doação encontrada para este CPF.');</script>";
+    echo "<script>
+            alert('Nenhuma doação encontrada para este CPF.');
+            window.location.href = 'historicoDoacao.html'; // Permanecer na mesma página
+          </script>";
 }
 
 $conn = null; // Fecha a conexão com o banco de dados

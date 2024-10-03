@@ -60,9 +60,9 @@
               <a class="nav-link" href="../HTML/entrar.html">Entrar</a>
             </li>
           </ul>
-          <form class="d-flex me-3" action="../PHP/buscarDoacoes.php" method="POST">
-            <input class="form-control me-2" type="text" name="cpf" placeholder="Digite seu CPF" required>
-            <button class="btn btn-secondary" type="submit">Digite seu CPF para buscar doações</button>
+          <form class="d-flex me-3" id="formBuscarDoacoes">
+            <input class="form-control me-2" type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+            <button class="btn btn-secondary" type="submit">Buscar doações</button>
           </form>
         </div>
       </div>
@@ -73,9 +73,8 @@
     <h2 class="text-center">Histórico de Doações</h2>
     <p>Abaixo você pode consultar todas as suas doações realizadas:</p>
 
-    <!-- Aqui você pode exibir as doações após o processamento em buscarDoacoes.php -->
-
-    <p>A consulta ao histórico será exibida na página seguinte após o envio do formulário.</p>
+    <!-- Div onde a tabela de doações será inserida -->
+    <div id="historicoDoacoes"></div>
   </main><br>
 
   <center><button type="button" class="btn btn-secondary" onclick="history.back()">Voltar</button></center>
@@ -87,7 +86,28 @@
     </div>
   </footer>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    // Função AJAX para buscar as doações
+    document.getElementById('formBuscarDoacoes').addEventListener('submit', function (e) {
+      e.preventDefault(); // Evita o redirecionamento padrão
+
+      var cpf = document.getElementById('cpf').value;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '../PHP/buscarDoacoes.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          document.getElementById('historicoDoacoes').innerHTML = this.responseText;
+        } else {
+          console.error('Erro na requisição AJAX');
+        }
+      };
+
+      xhr.send('cpf=' + encodeURIComponent(cpf));
+    });
+  </script>
+
 </body>
 
 </html>
