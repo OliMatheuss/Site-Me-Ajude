@@ -26,45 +26,7 @@
     }
   </script>
 
-  <style>
-    .donation-info {
-      transition: all 0.3s ease;
-      opacity: 0.9;
-      margin: 20px 0;
-    }
-
-    .donation-info:hover {
-      opacity: 1;
-      transform: scale(1.02);
-    }
-
-    .image-container {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .donation-text {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    #donation-form {
-      margin: 20px auto;
-      max-width: 600px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background-color: #f9f9f9;
-    }
-
-    label {
-      margin-top: 10px;
-    }
-
-    textarea {
-      resize: none;
-    }
-  </style>
+ 
 </head>
 
 <body>
@@ -113,11 +75,12 @@
   </header>
 
   <main>
+    <center>
     <h1 class="text-center">Doar para ONG</h1>
 
-    <div class="image-container">
+    <div class="image-container" class="form-container">
       <img src="../Imagens/vaquinha.jpg" alt="Imagem Relacionada" class="img-fluid">
-    </div>
+    
 
     <form id="donation-form" action="../PHP/processarDoacao.php" method="POST">
       <label for="email">Email:</label>
@@ -144,7 +107,7 @@
       <button type="reset">Limpar</button>
       <button type="button" onclick="history.back()">Voltar</button> <!-- Botão Voltar ao lado do Limpar -->
     </form>
-
+  </div></center>
     <main class="container text-center">
       <center>
         <h1>Ajudar quem precisa nunca foi tão fácil!</h1>
